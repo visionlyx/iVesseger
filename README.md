@@ -29,7 +29,7 @@ The specific steps for using iVesseger are as follows:
     Two parameters are set in refine_detect.py:
       # Fine-segmentation with HCS-Net by default
       net = HCS_Net(2, 1, image_size)
-      # Import model parameters(We provide the training parameters of HCS-Net, called "HCS-Net.pth")
+      # Import model parameters (We provide the training parameters of HCS-Net, called "HCS-Net.pth")
       model_path = 'logs/refine_seg/fileName.pth'
     
   **step 3.** Click on the ***Load image*** button in the left interface to import data. We provide a data block for testing(named ***"test_image.tif"***).
