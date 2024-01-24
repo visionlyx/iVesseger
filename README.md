@@ -1,15 +1,13 @@
-# iVesseger framework
+# iVesseger Framework
 This repository contains the code for the paper "**Deep Leaning-Based Interactive Segmentation of Three-Dimensional Blood Vessel Images**". Once the paper is accepted, the source code will be made public.
 
 As a deep leaning-based interactive vascular segmentation framework, the iVesseger employs mouse-click operations to select regions in 3D space, guiding neural networks to correct any erroneous segmentation results. iVesseger comprises four steps: vessel pre-segmentation, interaction point selection, vascular image enhancement, and fine segmentation. 
 
 ![Image text](images/framework.jpg)
 
-In order to better demonstrate the capability of iVesseger, we have recorded a related animation:
-
 ![Image text](images/vedio.gif)
 
-# using procedure
+# Procedure
 The specific steps for using iVesseger are as follows:
 
   **step 1.** Make sure the Pytorch, PyQt, and VTK are included in the coding environment，the package version is:
