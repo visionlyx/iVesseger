@@ -16,7 +16,11 @@ The specific steps for using iVesseger are as follows:
     PyTorch - 1.12.1
     VTK - 9.2.6
     
-  **step 2.** Run the ***pyqt_vtk.py*** to start the program.Four parameters need to be set before running:
+  **step 2.** Implementation Platform & External Tools:
+    PyCharm - 2022
+    pyUIC & QT Desinger
+    
+  **step 3.** Run the ***pyqt_vtk.py*** to start the program.Four parameters need to be set before running:
   
     Two parameters are set in thick_detect.py:
       # Pre-segmentation with 3D U-Net by default
@@ -30,13 +34,13 @@ The specific steps for using iVesseger are as follows:
       # Import model parameters (We provide the training parameters of HCS-Net, called "HCS-Net.pth")
       model_path = 'logs/refine_seg/fileName.pth'
     
-  **step 3.** Click on the ***Load image*** button in the left interface to import data. We provide a data block for testing(named ***"test_image.tif"***).
+  **step 4.** Click on the ***Load image*** button in the left interface to import data. We provide a data block for testing(named ***"test_image.tif"***).
     
-  **step 4.** After data importing, use the Max slider and Min slider to adjust the brightness of the original image. The initial values of the Min-slider and Max-slider default to the maximum and minimum gray values in the original image.
+  **step 5.** After data importing, use the Max slider and Min slider to adjust the brightness of the original image. The initial values of the Min-slider and Max-slider default to the maximum and minimum gray values in the original image.
     
-  **step 5.** Click on the ***PreSeg*** button in the left interface to generate the pre-segmentation result.
+  **step 6.** Click on the ***PreSeg*** button in the left interface to generate the pre-segmentation result.
     
-  **step 6.** Interaction point selection process: 
+  **step 7.** Interaction point selection process: 
 
     In single-ray mode:
       Left-click to adjust the viewing angle
@@ -49,11 +53,11 @@ The specific steps for using iVesseger are as follows:
       right-click to eliminate erroneous interaction rays
 
     
-  **step 7.** After point selection, click on the ***Seg*** button in the left interface to generate the fine segmentation result.
+  **step 8.** After point selection, click on the ***Seg*** button in the left interface to generate the fine segmentation result.
     
-  **step 8.** Repeat the point selection and fine segmentation process to optimize the segmentation result.
+  **step 9.** Repeat the point selection and fine segmentation process to optimize the segmentation result.
     
-  **step 9.** Click on the ***Save Label*** button in the left interface to save the segmentation result.
+  **step 10.** Click on the ***Save Label*** button in the left interface to save the segmentation result.
     
-  **step 10.** The checkbox at the bottom is used to select single-ray or cross-ray mode.
+  **step 11.** The checkbox at the bottom is used to select single-ray or cross-ray mode.
 
