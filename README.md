@@ -5,7 +5,9 @@ As a deep leaning-based interactive vascular segmentation framework, the iVesseg
 
 ![Image text](images/framework.jpg)
 
-![Image text](images/vedio.gif)
+<div align=center>
+ ![Image text](images/vedio.gif)
+<div>
 
 # Procedure
 The specific steps for using iVesseger are as follows:
