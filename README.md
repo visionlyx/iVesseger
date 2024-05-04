@@ -7,6 +7,7 @@ As a deep leaning-based interactive vascular segmentation framework, the iVesseg
 
 <div align=center>
  ![Image text](images/vedio.gif)
+ <img src="images/vedio.gif">
 <div>
 
 # Procedure
