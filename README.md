@@ -3,10 +3,11 @@ This repository contains the code for the paper "**Deep Leaning-Based Interactiv
 
 As a deep leaning-based interactive vascular segmentation framework, the iVesseger employs mouse-click operations to select regions in 3D space, guiding neural networks to correct any erroneous segmentation results. iVesseger comprises four steps: vessel pre-segmentation, interaction point selection, vascular image enhancement, and fine segmentation. 
 
-![Image text](images/framework.jpg)
+<div align=center>
+ <img src="images/framework.jpg">
+<div>
 
 <div align=center>
- ![Image text](images/vedio.gif)
  <img src="images/vedio.gif">
 <div>
 
