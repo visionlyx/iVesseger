@@ -3,11 +3,11 @@ This repository contains the code for the paper "**Deep Leaning-Based Interactiv
 
 <div align=center>
  <img src="images/framework.jpg">
-<div>
+</div>
 
 <div align=center>
  <img src="images/vedio.gif">
-<div>
+</div>
 
 # Procedure
 The specific steps for using iVesseger are as follows:
