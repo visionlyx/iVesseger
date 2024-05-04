@@ -26,14 +26,14 @@ The specific steps for using iVesseger are as follows:
     Two parameters are set in thick_detect.py:
       # Pre-segmentation with 3D U-Net by default
       net = UNet3D(1, 1, 64, layer_order='cbr')
-      # Import model parameters
-      model_path = 'logs/thick_seg/fileName.pth'
+      # Import model parameters (We provide the training parameters of U-Net, called "U_Net.pth")
+      model_path = 'logs/thick_seg/U_Net.pth'
     
     Two parameters are set in refine_detect.py:
       # Fine-segmentation with HCS-Net by default
       net = HCS_Net(2, 1, image_size)
-      # Import model parameters (We provide the training parameters of HCS-Net, called "HCS-Net.pth")
-      model_path = 'logs/refine_seg/fileName.pth'
+      # Import model parameters (We provide the training parameters of HCS-Net, called "HCS_Net.pth")
+      model_path = 'logs/refine_seg/HCS_Net.pth'
     
   **step 4.** Click on the ***Load image*** button in the left interface to import data. We provide a data block for testing(named ***"test_image.tif"***).
     
