@@ -62,7 +62,7 @@ class ResidualBlock_up(nn.Module):
 
 class HCS_Net(nn.Module):
 
-    def __init__(self, in_channels=2, out_channels=1, image_size=128):
+    def __init__(self, in_channels=2, out_channels=1, image_size=160):
         super().__init__()
 
         self.in_channels = in_channels
