@@ -28,7 +28,6 @@ def create_conv(in_channels, out_channels, kernel_size, order, num_groups, paddi
                 num_channels = out_channels
             if num_channels < num_groups:
                 num_groups = 1
-            assert num_channels % num_groups == 0, f'Expected number of channels in input to be divisible by num_groups. num_channels={num_channels}, num_groups={num_groups}'
             modules.append(('groupnorm', nn.GroupNorm(num_groups=num_groups, num_channels=num_channels)))
         elif char == 'b':
             is_before_conv = i < order.index('c')
@@ -58,12 +57,8 @@ class DoubleConv(nn.Sequential):
         else:
             conv1_in_channels, conv1_out_channels = in_channels, out_channels
             conv2_in_channels, conv2_out_channels = out_channels, out_channels
-        self.add_module('SingleConv1',
-                        SingleConv(conv1_in_channels, conv1_out_channels, kernel_size, order, num_groups,
-                                   padding=padding))
-        self.add_module('SingleConv2',
-                        SingleConv(conv2_in_channels, conv2_out_channels, kernel_size, order, num_groups,
-                                   padding=padding))
+        self.add_module('SingleConv1', SingleConv(conv1_in_channels, conv1_out_channels, kernel_size, order, num_groups, padding=padding))
+        self.add_module('SingleConv2', SingleConv(conv2_in_channels, conv2_out_channels, kernel_size, order, num_groups, padding=padding))
 
 class ExtResNetBlock(nn.Module):
     def __init__(self, in_channels, out_channels, kernel_size=3, order='cge', num_groups=8, **kwargs):
@@ -85,6 +80,7 @@ class ExtResNetBlock(nn.Module):
     def forward(self, x):
         out = self.conv1(x)
         residual = out
+
         # residual block
         out = self.conv2(out)
         out = self.conv3(out)
@@ -105,12 +101,8 @@ class Encoder(nn.Module):
                 self.pooling = nn.AvgPool3d(kernel_size=pool_kernel_size)
         else:
             self.pooling = None
-        self.basic_module = basic_module(in_channels, out_channels,
-                                         encoder=True,
-                                         kernel_size=conv_kernel_size,
-                                         order=conv_layer_order,
-                                         num_groups=num_groups,
-                                         padding=padding)
+        self.basic_module = basic_module(in_channels, out_channels, encoder=True, kernel_size=conv_kernel_size,
+                                         order=conv_layer_order, num_groups=num_groups, padding=padding)
 
     def forward(self, x):
         if self.pooling is not None:
@@ -131,12 +123,8 @@ class Decoder(nn.Module):
                                          kernel_size=conv_kernel_size, scale_factor=scale_factor, mode=mode)
             self.joining = partial(self._joining, concat=False)
             in_channels = out_channels
-        self.basic_module = basic_module(in_channels, out_channels,
-                                         encoder=False,
-                                         kernel_size=conv_kernel_size,
-                                         order=conv_layer_order,
-                                         num_groups=num_groups,
-                                         padding=padding)
+        self.basic_module = basic_module(in_channels, out_channels, encoder=False, kernel_size=conv_kernel_size,
+                                         order=conv_layer_order, num_groups=num_groups, padding=padding)
 
     def forward(self, encoder_features, x):
         x = self.upsampling(encoder_features=encoder_features, x=x)

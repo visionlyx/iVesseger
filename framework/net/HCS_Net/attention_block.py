@@ -1,6 +1,5 @@
 import torch
 from torch import nn
-from torch.nn import init
 
 class ChannelAttention(nn.Module):
     def __init__(self, channel, reduction=16, size=16):
@@ -43,23 +42,8 @@ class CBAMBlock(nn.Module):
         self.ca = ChannelAttention(channel=channel, reduction=reduction, size=size)
         self.sa = SpatialAttention(kernel_size=kernel_size)
 
-    def init_weights(self):
-        for m in self.modules():
-            if isinstance(m, nn.Conv3d):
-                init.kaiming_normal_(m.weight, mode='fan_out')
-                if m.bias is not None:
-                    init.constant_(m.bias, 0)
-            elif isinstance(m, nn.BatchNorm3d):
-                init.constant_(m.weight, 1)
-                init.constant_(m.bias, 0)
-            elif isinstance(m, nn.Linear):
-                init.normal_(m.weight, std=0.001)
-                if m.bias is not None:
-                    init.constant_(m.bias, 0)
-
     def forward(self, x):
-        b, c, _, _, _ = x.size()
         residual = x
         out = x * self.ca(x)
-        out = out * self.sa(out)
+        # out = out * self.sa(out)
         return out + residual

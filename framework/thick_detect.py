@@ -1,6 +1,7 @@
 import numpy
 from net.U_Net.models import *
 from utils.image_filter import *
+from torch.autograd import Variable
 from PyQt5.QtCore import QThread, pyqtSignal
 
 class Thick_Seg(QThread):

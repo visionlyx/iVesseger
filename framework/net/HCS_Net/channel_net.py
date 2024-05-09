@@ -1,6 +1,3 @@
-import os
-from torch.autograd import Variable
-import numpy as np
 from net.HCS_Net.attention_block import *
 
 class Resi_Conv(nn.Module):
@@ -65,7 +62,7 @@ class ResidualBlock_up(nn.Module):
 
 class HCS_Net(nn.Module):
 
-    def __init__(self, in_channels=4, out_channels=1, image_size=128):
+    def __init__(self, in_channels=2, out_channels=1, image_size=128):
         super().__init__()
 
         self.in_channels = in_channels
@@ -92,10 +89,10 @@ class HCS_Net(nn.Module):
 
         self.conv7 = ResidualBlock_up(64, 32)
 
-        self.channel0 = ChannelAttention(channel=16, reduction=4, size=image_size)
-        self.channel1 = ChannelAttention(channel=128, reduction=32, size=int(image_size/4))
-        self.channel2 = ChannelAttention(channel=64, reduction=16, size=int(image_size/2))
-        self.channel3 = ChannelAttention(channel=32, reduction=8, size=image_size)
+        self.channel0 = CBAMBlock(channel=16, reduction=4, size=image_size,  kernel_size=5)
+        self.channel1 = CBAMBlock(channel=128, reduction=32, size=int(image_size/4),  kernel_size=5)
+        self.channel2 = CBAMBlock(channel=64, reduction=16, size=int(image_size/2),  kernel_size=5)
+        self.channel3 = CBAMBlock(channel=32, reduction=8, size=image_size,  kernel_size=5)
 
         self.up1 = nn.Upsample(mode="trilinear", scale_factor=2, align_corners=False)
         self.up2 = nn.Upsample(mode="trilinear", scale_factor=2, align_corners=False)

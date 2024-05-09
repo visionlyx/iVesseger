@@ -1,9 +1,9 @@
-import numpy as np
-from net.U_Net.buildingblocks import Encoder, Decoder, DoubleConv
-from net.U_Net.utiltt import number_of_features_per_level
-from torch.autograd import Variable
 import torch.nn as nn
 import torch
+from net.U_Net.buildingblocks import Encoder, Decoder, DoubleConv
+
+def number_of_features_per_level(init_channel_number, num_levels):
+    return [init_channel_number * 2 ** k for k in range(num_levels)]
 
 class Abstract3DUNet(nn.Module):
     def __init__(self, in_channels, out_channels, final_sigmoid, basic_module, f_maps=64, layer_order='cbr',

@@ -15,20 +15,13 @@ from creat_actors import *
 class MyVTK(QVTKRenderWindowInteractor):
     def __init__(self, p):
         super(MyVTK, self).__init__(p)
-
-        # Make tha actual QtWidget a child so that it can be re parented
         self.interactor = QVTKRenderWindowInteractor()
-
         self.ren = vtk.vtkRenderer()
-
         self.ren.GetActiveCamera().ParallelProjectionOn()
-
         self.GetRenderWindow().AddRenderer(self.ren)
         self.iren = self.GetRenderWindow().GetInteractor()
-
         self.model = "Single"
         self.iren.SetInteractorStyle(MyInteractorStyle(self.iren, self.ren, self, self.model))
-
 
         self.img = 0
         self.label = 0
@@ -172,7 +165,6 @@ class MyVTK(QVTKRenderWindowInteractor):
 
         self.ren.AddActor(actor)
         self.GetRenderWindow().Render()
-
         return a
 
     def add_single_point(self, x, y, z):
