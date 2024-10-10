@@ -8,6 +8,8 @@ class MyInteractorStyle(vtkInteractorStyleTrackballCamera):
         self.interactor = interactor
         self.renderer = renderer
 
+        self.num_click = 0
+
         self.model = model
         self.check = 1
 
@@ -23,6 +25,7 @@ class MyInteractorStyle(vtkInteractorStyleTrackballCamera):
 
     def left_button_release_event(self, obj, event):
         if self.model == "Single":
+
             self.number_of_click = self.number_of_click + 1
             if self.number_of_click == 2:
                 screenX, screenY = self.interactor.GetEventPosition()
@@ -31,8 +34,9 @@ class MyInteractorStyle(vtkInteractorStyleTrackballCamera):
                 picked = self.interactor.GetPicker()
                 x, y, z = picked.GetPickPosition()
 
-                self.number_of_click = 0
+                print(self.num_click)
                 self.myvtkwidget.add_single_point(x, y, z)
+
 
             self.OnLeftButtonUp()
             return
@@ -56,6 +60,7 @@ class MyInteractorStyle(vtkInteractorStyleTrackballCamera):
                     self.number_of_click = 0
                     self.second_index = [x, y, z]
                     self.second_list = self.myvtkwidget.add_line(x, y, z)
+
                     self.myvtkwidget.add_double_point(self.first_list, self.second_list)
                     self.myvtkwidget.remove_last_line()
                     self.myvtkwidget.remove_last_line()
