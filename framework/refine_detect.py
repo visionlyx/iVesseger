@@ -33,7 +33,6 @@ class Refine_Seg(QThread):
         image = random_clip(temp_image, percentage1, percentage2)
 
         image_morph = morphology_op(image, fp_point_volume, fn_point_volume, image_size)
-
         image = np.array(image_morph, dtype=np.float32)
         thick_image = np.array(temp_label, dtype=np.float32)
 
