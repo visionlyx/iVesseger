@@ -61,5 +61,5 @@ The specific steps for using iVesseger are as follows:
     
   **step 11.** The checkbox at the bottom is used to select single-ray or cross-ray mode.
 
-  **note** The training parameters should be downloaded separately to ensure data consistency. The .pth file called "HCS_Net.pth" is stored in the path "/framework/logs/refine_seg"， and the .pth file called "U_Net.pth" is stored in the path "/framework/logs/thick_seg".
+  **NOTE** The training parameters should be downloaded separately to ensure data consistency. The .pth file called "HCS_Net.pth" is stored in the path "/framework/logs/refine_seg"， and the .pth file called "U_Net.pth" is stored in the path "/framework/logs/thick_seg".
 
