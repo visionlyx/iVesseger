@@ -190,10 +190,10 @@ class MyWindow(QWidget):
         self.temp_label = label
         self.vtkWidget.label = label
 
-        lab = creat_points_actor(label)
-        self.vtkWidget.label_actor = lab
+        label = creat_points_actor(label)
+        self.vtkWidget.label_actor = label
 
-        self.vtkWidget.ren.AddActor(lab)
+        self.vtkWidget.ren.AddActor(label)
         self.vtkWidget.GetRenderWindow().Render()
 
     def refine_seg(self):
@@ -213,10 +213,10 @@ class MyWindow(QWidget):
         self.temp_label = label
         self.temp_image = out[0]
 
-        lab = creat_points_actor(label)
-        self.vtkWidget.label_actor = lab
+        label = creat_points_actor(label)
+        self.vtkWidget.label_actor = label
 
-        self.vtkWidget.ren.AddActor(lab)
+        self.vtkWidget.ren.AddActor(label)
         self.vtkWidget.GetRenderWindow().Render()
 
     def save_label(self):
