@@ -20,10 +20,11 @@ class Refine_Seg(QThread):
     def refine_image_seg(self, image_size, temp_image, temp_label, fp_point_volume, fn_point_volume):
         model_path = 'logs/refine_seg/HCS_Net.pth'
         os.environ["CUDA_VISIBLE_DEVICES"] = '0'
+        
         net = HCS_Net(2, 1, image_size)
-
         checkpoint = torch.load(model_path)
         net.load_state_dict(checkpoint['model'])
+        
         net = net.eval()
         net = nn.DataParallel(net)
         net = net.cuda()

@@ -18,10 +18,11 @@ class Thick_Seg(QThread):
     def thick_image_seg(self, temp_image):
         model_path = 'logs/thick_seg/U_Net.pth'
         os.environ["CUDA_VISIBLE_DEVICES"] = '0'
+        
         net = UNet3D(1, 1, 64, layer_order='cbr')
-
         checkpoint = torch.load(model_path)
         net.load_state_dict(checkpoint['model'])
+        
         net = net.eval()
         net = nn.DataParallel(net)
         net = net.cuda()
