@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ac62254-3c27-447a-9749-d284b259ccae" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/UI/UI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/UI.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UI/UI.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/creat_actors.py" beforeDir="false" afterPath="$PROJECT_DIR$/creat_actors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/get_points.py" beforeDir="false" afterPath="$PROJECT_DIR$/get_points.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyqt_vtk.py" beforeDir="false" afterPath="$PROJECT_DIR$/pyqt_vtk.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/refine_detect.py" beforeDir="false" afterPath="$PROJECT_DIR$/refine_detect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thick_detect.py" beforeDir="false" afterPath="$PROJECT_DIR$/thick_detect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vtk_widgets.py" beforeDir="false" afterPath="$PROJECT_DIR$/vtk_widgets.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

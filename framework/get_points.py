@@ -33,8 +33,6 @@ class MyInteractorStyle(vtkInteractorStyleTrackballCamera):
                 self.interactor.GetPicker().Pick(screenX, screenY, 0, self.renderer)
                 picked = self.interactor.GetPicker()
                 x, y, z = picked.GetPickPosition()
-
-                print(self.num_click)
                 self.myvtkwidget.add_single_point(x, y, z)
 
 
