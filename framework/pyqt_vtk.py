@@ -200,9 +200,9 @@ class MyWindow(QWidget):
         self.refine_seg_thread.image_size = self.image_size
         self.refine_seg_thread.temp_image = self.temp_image
         self.refine_seg_thread.temp_label = self.temp_label
+        
         self.refine_seg_thread.fp_point_volume = self.vtkWidget.fp_volumes
         self.refine_seg_thread.fn_point_volume = self.vtkWidget.fn_volumes
-
         self.refine_seg_thread.start()
 
     def refine_seg_output(self, out):
